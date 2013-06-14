@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+{% block title %} Citations ecrit par {{ article.auteur }} {% endblock %}
+
+{% block content %}
+           <h2>{{ article.titre }}</h2>
+        <p>
+            {{ article.contenu|linebreaks }}<br>
+            Ecrit par {{ article.auteur }}, le {{ article.date|date:"DATE_FORMAT" }}
+        </p>
+
+{% endblock %}
