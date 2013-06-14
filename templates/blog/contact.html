@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+{% load bootstrap_toolkit %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block contenu %}
+  <!--  <form action="{% url 'blog.views.contact' %}" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+    </form>-->
+
+    <form class="form-vertical" action="{% url 'blog.views.contact' %}" method="post">
+        {% csrf_token %}
+        {{ form|as_bootstrap:'vertical' }}
+        <input type="submit" value="Envoyer" class="btn btn-primary">
+    </form>
+
+<div class="span4">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut deleniti earum harum, ipsam laudantium
+        maxime minima nemo nihil nisi numquam pariatur porro praesentium quo reiciendis repellat sit soluta
+        voluptatem? Praesentium?</p>
+</div>
+{% endblock %}

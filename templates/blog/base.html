@@ -1,0 +1,98 @@
+{% load bootstrap_toolkit %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %} Mouride's Fact {% endblock %}| Les paroles celebres sur le Mouridisme et ses acteurs
+    </title>
+
+    {% block css %}
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.css"/>
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css"/>
+    {% endblock %}
+
+    {% block js %}
+        <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.9.0.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+    {% endblock %}
+    
+</head>
+
+<body>
+{% block header %}
+    <div class="page-header" style="text-align: center; margin: auto">
+        <div class="text-right">
+            {% if user.is_authenticated %}
+            Bienvenue, {{ user.username }} ! <a href="/blog/logout" class="btn">Se deconnecter</a>
+            {% else %}
+            <h6><a href="/blog/login" class="btn">Se connecter</a> <a href="#" class="btn">S'inscrire</a></h6>
+            {% endif %}
+        </div>
+        <h1>Djeureudjeufë Serigne Touba</h1>
+        <span class="well-small">Djarama Mame Cheikh Ibrahima Fall</span>
+    </div>
+{% endblock %}
+{% block nav %}
+
+    <div class="navbar">
+        <div class="navbar-inner">
+            <!--<h2><a class="brand" href="#">Touba</a></h2>-->
+            <ul class="nav">
+                <li><a href="{% url 'blog.views.homepage' %}">Acceuil</a></li>
+                <li class="divider-vertical"></li>
+                <li><a href="{% url 'blog.views.list_facts' %}">Citations</a></li>
+                <li class="divider-vertical"></li>
+                <li><a href="{% url 'blog.views.mouridisme' %}">Le Mouridisme</a></li>
+                           <li class="divider-vertical"></li>
+                <li><a href="">Serigne Touba</a></li>
+                           <li class="divider-vertical"></li>
+                <li><a href="{% url 'blog.views.contact' %}">Contact</a></li>
+                           <li class="divider-vertical"></li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block slide %}
+
+{% endblock %}
+<div class="container">
+    <div class="row">
+    {% block content %}
+        <div class="span10">
+            {% block contenu %}
+            {% endblock %}
+        </div>
+
+        <div class="span2">
+            {% block sidebar %}
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Accusamus aliquam beatae corporis debitis ducimus ea et
+                    exercitationem expedita fugit hic illum iusto,
+                    nam odit quas quo sint soluta? A, beatae!
+                </p>
+            {% endblock %}
+        </div>
+    {% endblock %}
+    </div>
+
+    <p><hr></p>
+    <footer class="row">
+        <div class="span6">
+            <p><a href="#">Touba Fact</a></p>
+        </div>
+        <div class="span6" style="text-align:right">
+            <p>
+                &copy; <a href="http://twitter.com/niamato">nmtsylla</a> 2013                |
+                <a href="http://softwart.net">Softw'Art</a>
+            </p>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>

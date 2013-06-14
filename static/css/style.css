@@ -1,0 +1,18 @@
+
+body {
+    width:960px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Safari 4-5, Chrome 1-9 */
+    /*  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#000000), to(#FFFFFF)) no-repeat fixed;
+      */
+    /* Safari 5.1, Chrome 10+ */
+    /*background: -webkit-linear-gradient(top, #FFFFFF, #000000) no-repeat fixed;
+     Firefox 3.6+ */
+    /*background: -moz-linear-gradient(top, #FFFFFF, #000000) no-repeat fixed;
+     IE 10 */
+    /*background: -ms-linear-gradient(top, #FFFFFF, #000000) no-repeat fixed;
+     Opera 11.10+ */
+    /*background: -o-linear-gradient(top, #FFFFFF, #000000) no-repeat fixed;*/
+}
+

@@ -1,0 +1,41 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block slide %}
+
+    <div id="myCarousel" class="span12 carousel slide">
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+
+            <div class="active item"><img src="{{ STATIC_URL }}img/sfallou.jpg" alt="HTML5 logo" height="230" /></div>
+            <div class="item"><img src="{{ STATIC_URL }}img/ssaiou.jpg" alt="JS logo"  height="230" /></div>
+            <div class="item"><img src="{{ STATIC_URL }}img/stouba.jpg" alt="Schema.org logo" height="230" /></div>
+        </div>
+          <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+    </div>
+
+{% endblock %}
+
+{% block contenu %}
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid assumenda at cumque ducimus, ex modi
+        molestias, porro provident quasi quibusdam quo rem sed sequi tempora voluptates, voluptatum? Laboriosam,
+        quisquam.</p>
+    <p>Ad amet animi at dolor exercitationem facilis incidunt inventore ipsum laborum maiores, natus nesciunt possimus
+        praesentium quia quisquam quo quod rem saepe, sapiente, sit suscipit tempore unde ut veritatis vero.</p>
+    <p>Alias atque deserunt error eum impedit incidunt itaque laborum neque odio vel? Blanditiis consequuntur debitis
+        deleniti dicta dolor eius incidunt ipsam maxime mollitia, neque quidem, quo reprehenderit sit, ullam
+        veritatis.</p>
+    <p>Aperiam architecto beatae consequuntur dolorum eum explicabo facere iure labore laudantium libero magni neque
+        obcaecati, officiis placeat provident quae quibusdam quo, saepe soluta tempore temporibus totam unde ut
+        veritatis vero.</p>
+    <p>A aperiam asperiores aut, cum delectus dolorem doloribus ea eos excepturi explicabo fugiat fugit incidunt, itaque
+        iusto minima modi nesciunt non nostrum odit optio praesentium qui tempora veniam vero voluptatibus!</p>
+{% endblock %}
+
+<script type="text/javascript">
+    $('.carousel').carousel({
+        interval: 200
+    });
+</script>

@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% load bootstrap_toolkit %}
+{% block title %} Citations {% endblock %}
+
+{% block contenu %}
+
+    {% for article in articles %}
+        <h2><a href="{% url 'blog.views.view_fact' article.id %}">{{ article.titre }}</a></h2>
+        <p>
+            {{ article.contenu|linebreaks }}<br>
+            <blockquote>
+            Ecrit par {{ article.auteur }} <small> le {{ article.date|date:"DATE_FORMAT" }}</small>
+            </blockquote>
+        </p>
+    {% endfor %}
+    {{ articles|pagination }}
+    <hr>
+    {% bootstrap_pagination articles url="/blog/facts?page=1" %}
+
+    <a href="{% url 'blog.views.add' %}">Ajouter article</a>
+{% endblock %}
