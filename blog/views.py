@@ -1,7 +1,7 @@
 #-*-coding:utf-8-*
 # Create your views here.
-from django.http.response import Http404
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, render_to_response, redirect
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, render_to_response
+from datetime import datetime
 from blog.models import Article
 from blog.forms import ContactForm, ArticleForm, LoginForm
 from django.contrib.auth import authenticate, login, logout
@@ -11,7 +11,7 @@ from django.template.context import RequestContext
 
 
 def homepage(request):
-    return render(request, 'blog/homepage.html')
+    return render(request, 'blog/homepage.html', {'current_date': datetime.now()})
 
 
 def list_facts(request):
@@ -41,6 +41,10 @@ def mouridisme(request):
     return render(request, 'blog/mouridisme.html')
 
 
+def about(request):
+    pass
+
+
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -56,8 +60,6 @@ def contact(request):
 
 
 def add(request):
-    if not request.user.is_authenticated:
-        return render('/blog/login')
     if request.method == 'POST':
         form = ArticleForm(request.POST)
         if form.is_valid():
@@ -72,10 +74,6 @@ def add(request):
     return render(request, 'blog/add_fact.html', {'title': 'Ajouter !', 'form': form})
 
 
-def about(request):
-    pass
-
-
 def connexion(request):
     error = False
     if request.method == 'POST':
@@ -84,8 +82,6 @@ def connexion(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             user = authenticate(username=username, password=password)
-            request.session['user_id'] = user.id
-            request.session['username'] = user.username
             if user:
                 login(request, user)
             else:
@@ -97,4 +93,4 @@ def connexion(request):
 
 def deconnexion(request):
     logout(request)
-    return redirect(reverse(homepage()))
+    return redirect(reverse(connexion))
